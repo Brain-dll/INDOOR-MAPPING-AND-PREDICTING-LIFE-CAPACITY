@@ -12,17 +12,17 @@ scale = 1                       # SCALE FOR THE RECTANGLE AREA TO DRAW AFTERWARD
 radius = 5                      # RADIUS OF THE CIRCLE IMAGES
 scanWidthDegree = int(40)       # SCAN ANGLE
 
-firebase = firebase.FirebaseApplication("https://fir-arduino-269f4.firebaseio.com/",None)
+firebase = firebase.FirebaseApplication("YOUR FIREBASE REALTIME DATABASE REPO ADRESS (URL)",None)
 
 while True:
-    result = firebase.get('/MAPPRIME','')       ## measurements are obtained from server
+    result = firebase.get('/MAPPRIME','')       ## measurements are obtained from server (MAPPRIME our database folder you have to create and choose own folder) 
     if result != None:
         result = result["Angle"].values()
         if len(result) == 360:
             result = list(enumerate(result))         
             result1 = [list(item) for item in result]
             
-            air_quality = firebase.get("/DATAPRIME/Air-quality", "")
+            air_quality = firebase.get("/DATAPRIME/Air-quality", "")  ## like MAPPRIME
             humidity = firebase.get("/DATAPRIME/Humidity", "")
             temperature = firebase.get("/DATAPRIME/Temperature", "")
             print("DATA Obtained")
@@ -171,67 +171,6 @@ myPen.write(stringTemperature, False, align="left", font=("Arial", 15, "normal")
 
 #################               END
 #################               END
-
-
-
-#########################       TO SHOW THE SCANNING RANGE
-#########################       TO SHOW THE SCANNING RANGE
-"""
-myPen.width(3)             
-myPen.speed(0)
-myPen.color('green')
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(90-halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(90+halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(180-halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(180+halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(270-halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(270+halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(360-halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-
-myPen.setpos(0,0)
-myPen.pendown()
-myPen.setheading(360+halfScanAngle)
-myPen.forward(400)
-myPen.penup()
-"""
-################                END
-################                END
-
 
 
 ##################              DRAWING BLUE DOTS
