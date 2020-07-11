@@ -20,10 +20,10 @@ DHT dht(DHTPIN, DHTTYPE);
 #define trig D5
 #define echo D0
 
-#define FIREBASE_HOST "fir-arduino-269f4.firebaseio.com"
-#define FIREBASE_AUTH "CMjR0hy6at3zoWyA54MEguADWatOYm8GdJKCirj0"
-#define WIFI_SSID "FiberHGW_ZTTU5G_2.4GHz"
-#define WIFI_PASSWORD "yHqqzkppRa"
+#define FIREBASE_HOST "Yourfirebaseurlwithoutlast'/'and'https//'.com"
+#define FIREBASE_AUTH "Your own firebase token_or_secret"
+#define WIFI_SSID "SSID"
+#define WIFI_PASSWORD "PASSWORD"
 
 int distance;
 int turn_dis;
